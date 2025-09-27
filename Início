@@ -1,0 +1,4 @@
+--- Liste as informações um continente específico. ---
+select * from country 
+where continent = 'North America';
+
