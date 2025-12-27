@@ -10,7 +10,7 @@ Nível Intermediário → JOINs, GROUP BY, agregações.
 Nível Avançado → subqueries, CTEs, funções de janela.
 Nível Expert → problemas de negócio, otimização e análises complexas.
 
-<h1 align="center"><strong>Tipos de Dados para inserção de dados.</strong> </h1>
+Tipos de Dados para inserção de dados.
 Char(n): String de caracteres de tamanho fixo n, máximo de 8000 caracteres.
 
 Varchar(n): String de caracteres de tamanho variável n, máximo de 8000 caracteres.
