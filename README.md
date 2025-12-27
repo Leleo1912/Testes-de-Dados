@@ -8,8 +8,6 @@ The content includes practical applications using tools commonly used in the dat
 
 This repository is continuously updated as I progress in my studies and develop new projects.
 
-Feel free to explore, and thank you for visiting! 🚀
-
 <!---
 
 ## 🤝 Connect with me
