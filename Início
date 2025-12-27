@@ -9,3 +9,22 @@ Nível Iniciante → consultas simples, SELECT, WHERE, ORDER BY, COUNT, AVG.
 Nível Intermediário → JOINs, GROUP BY, agregações.
 Nível Avançado → subqueries, CTEs, funções de janela.
 Nível Expert → problemas de negócio, otimização e análises complexas.
+
+Tipos de Dados para inserção de dados.
+Char(n): String de caracteres de tamanho fixo n, máximo de 8000 caracteres.
+
+Varchar(n): String de caracteres de tamanho variável n, máximo de 8000 caracteres.
+
+Tinyint: Números inteiros de 0 a 255
+
+Smallint: Números inteiros de -32768 a 32767
+
+int: Números inteiros entre -2,147,483,648 e 2,147,483,647
+
+Money: Dados monetários de -922.337.203.685.477,5808 até 922.337.203.685.477,5807
+
+Real: Números de ponto flutuante de precisão dupla entre -3,4 x 1038 e 3,4 x 1038
+
+Date: Data apenas. De 01/01/0001 a 31/12/9999
+
+Time: Hora apenas. Precisão de até 100 nanossegundos.
