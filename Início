@@ -28,3 +28,18 @@ Real: Números de ponto flutuante de precisão dupla entre -3,4 x 1038 e 3,4 x 1
 Date: Data apenas. De 01/01/0001 a 31/12/9999
 
 Time: Hora apenas. Precisão de até 100 nanossegundos.
+
+Constraints
+São regras pré definidas impostas as colunas de uma tabela, controla dados que são inseridos.
+
+Not Null: define que dados não podem ser inseridos sem valor.
+
+Unique: assegura que não haja valores duplicados na coluna, valores únicos em uma coluna
+
+Check: define a veracidade dos dados inseridos na coluna, usada para limitar os valores que podem ser colocados na coluna
+
+Primary Key: identifica de forma única cada registro em uma tabela de banco de dados, não podem ser Nulos e nem repetidos
+
+Foreign Key: ajuda a criar relacionamentos entre tabelas, também não possui valores Nulos
+
+Default: fornece um valor padrão para uma coluna
