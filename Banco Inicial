@@ -1,0 +1,86 @@
+-- Criação do banco de dados
+CREATE DATABASE LojaExemplo;
+GO
+
+-- Usar o banco criado
+USE LojaExemplo;
+GO
+
+-- Tabela de clientes
+CREATE TABLE Clientes (
+    ClienteID INT IDENTITY(1,1) PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) UNIQUE,
+    DataCadastro DATE DEFAULT GETDATE()
+);
+
+-- Tabela de produtos
+CREATE TABLE Produtos (
+    ProdutoID INT IDENTITY(1,1) PRIMARY KEY,
+    NomeProduto VARCHAR(100) NOT NULL,
+    Preco DECIMAL(10,2) NOT NULL,
+    Estoque INT NOT NULL
+);
+
+-- Inserindo clientes
+INSERT INTO Clientes (Nome, Email)
+VALUES 
+('Ana Silva', 'ana@email.com'),
+('Carlos Souza', 'carlos@email.com');
+
+-- Inserindo produtos
+INSERT INTO Produtos (NomeProduto, Preco, Estoque)
+VALUES
+('Notebook', 3500.00, 10),
+('Mouse', 80.00, 50);
+
+-- Selecionar todos os clientes
+SELECT * FROM Clientes;
+
+-- Selecionar apenas nome e email
+SELECT Nome, Email
+FROM Clientes;
+
+-- Produtos com preço maior que 100
+SELECT NomeProduto, Preco
+FROM Produtos
+WHERE Preco > 100
+ORDER BY Preco DESC;
+
+-- Clientes cadastrados após determinada data
+SELECT * FROM Clientes
+WHERE DataCadastro >= '2024-01-01';
+
+CREATE TABLE Pedidos (PedidoID INT IDENTITY(1,1) PRIMARY KEY,ClienteID INT,
+DataPedido DATE DEFAULT GETDATE(),
+FOREIGN KEY (ClienteID) REFERENCES Clientes(ClienteID)
+);
+
+-- Listar pedidos com nome do cliente
+SELECT P.PedidoID, C.Nome AS NomeCliente, P.DataPedido
+FROM Pedidos P
+INNER JOIN Clientes C
+ON P.ClienteID = C.ClienteID;
+
+-- Total de produtos
+SELECT COUNT(*) AS TotalProdutos
+FROM Produtos;
+
+-- Preço médio dos produtos
+SELECT AVG(Preco) AS PrecoMedio
+FROM Produtos;
+
+-- Produto mais caro
+SELECT MAX(Preco) AS ProdutoMaisCaro
+FROM Produtos;
+
+-- Criar uma view para listar produtos disponíveis
+CREATE VIEW vw_ProdutosDisponiveis AS
+SELECT NomeProduto, Preco, Estoque
+FROM Produtos
+WHERE Estoque > 0;
+
+SELECT * FROM vw_ProdutosDisponiveis;
+
+
+
