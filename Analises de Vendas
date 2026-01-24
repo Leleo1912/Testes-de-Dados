@@ -1,0 +1,17 @@
+-- CTE para consolidar vendas por cliente e mês
+WITH VendasMensais AS (
+SELECT c.IdCliente, c.Nome,
+DATEFROMPARTS(YEAR(v.DataVenda), MONTH(v.DataVenda), 1) AS Mes,
+SUM(v.Valor) AS TotalMes
+FROM Vendas v
+INNER JOIN Clientes c ON c.IdCliente = v.IdCliente
+GROUP BY c.IdCliente,c.Nome, YEAR(v.DataVenda), MONTH(v.DataVenda)
+)
+
+SELECT IdCliente, Nome, Mes, TotalMes,
+    -- Valor do mês anterior
+LAG(TotalMes) OVER (PARTITION BY IdCliente ORDER BY Mes) AS TotalMesAnterior,
+    -- Diferença entre o mês atual e o anterior
+TotalMes - LAG(TotalMes) OVER (PARTITION BY IdCliente ORDER BY Mes) AS Variacao
+FROM VendasMensais
+ORDER BY Nome, Mes;
